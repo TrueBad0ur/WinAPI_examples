@@ -35,8 +35,13 @@ void showWindow() {
     MessageBoxW(NULL, TEXT("Text inside the window"), TEXT("Title of the window"), MB_OK);
 }
 
+void infoAboutSystem() {
+    ShellAbout(NULL, TEXT("hello"), TEXT("world"), NULL);
+}
+
 int main() {
 	listFiles();
     showWindow();
+    infoAboutSystem();
 	return 0;
 }
