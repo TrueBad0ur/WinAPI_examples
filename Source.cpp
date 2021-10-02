@@ -28,11 +28,15 @@ void listFiles() {
             _tprintf(TEXT("  %*s      %ld bytes\n"), 30, ffd.cFileName, filesize.QuadPart);
         }
     } while (FindNextFile(hFind, &ffd) != 0);
+    getchar();
+}
 
+void showWindow() {
+    MessageBoxW(NULL, TEXT("Text inside the window"), TEXT("Title of the window"), MB_OK);
 }
 
 int main() {
 	listFiles();
-	
+    showWindow();
 	return 0;
 }
