@@ -5,12 +5,12 @@
 #include <strsafe.h>
 
 void listFiles() {
-	HANDLE hFind = INVALID_HANDLE_VALUE;
-	TCHAR szDir[MAX_PATH] = TEXT(".\\*");
-	WIN32_FIND_DATA ffd;
+    HANDLE hFind = INVALID_HANDLE_VALUE;
+    TCHAR szDir[MAX_PATH] = TEXT(".\\*");
+    WIN32_FIND_DATA ffd;
     LARGE_INTEGER filesize;
 
-	hFind = FindFirstFile(szDir, &ffd);
+    hFind = FindFirstFile(szDir, &ffd);
 
     do
     {
@@ -61,10 +61,10 @@ void dynamicDLLImport() {
 }
 
 int main() {
-	//listFiles();
-    //showWindow();
-    //infoAboutSystem();
-    //notepadExample();
+	listFiles();
+    showWindow();
+    infoAboutSystem();
+    notepadExample();
     dynamicDLLImport();
 	return 0;
 }
