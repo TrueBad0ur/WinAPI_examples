@@ -52,10 +52,19 @@ void notepadExample() {
     }
 }
 
+void dynamicDLLImport() {
+    typedef int(WINAPI* MessageBeepProc)(UINT);
+
+    HMODULE hModule1 = LoadLibrary(TEXT("USER32.dll"));
+    MessageBeepProc MessageBeepF = (MessageBeepProc)GetProcAddress(hModule1, "MessageBeep");
+    MessageBeepF(0xFFFFFFFF);
+}
+
 int main() {
-	listFiles();
-    showWindow();
-    infoAboutSystem();
-    notepadExample();
+	//listFiles();
+    //showWindow();
+    //infoAboutSystem();
+    //notepadExample();
+    dynamicDLLImport();
 	return 0;
 }
