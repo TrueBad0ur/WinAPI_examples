@@ -39,9 +39,23 @@ void infoAboutSystem() {
     ShellAbout(NULL, TEXT("hello"), TEXT("world"), NULL);
 }
 
+void notepadExample() {
+    HWND hWndCalc, hEditWnd;
+    hWndCalc = FindWindowA("Notepad", NULL);
+    if (hWndCalc) {
+        // Set title of notepad to TEST
+        SetWindowTextA(hWndCalc, "TEST");
+        hEditWnd = FindWindowEx(hWndCalc, NULL, TEXT("Edit"), NULL);
+        if (hEditWnd) {
+            SendMessageA(hEditWnd, WM_SETTEXT, 0, (LPARAM)"TEST");
+        }
+    }
+}
+
 int main() {
 	listFiles();
     showWindow();
     infoAboutSystem();
+    notepadExample();
 	return 0;
 }
