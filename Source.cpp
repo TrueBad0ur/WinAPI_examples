@@ -12,17 +12,13 @@ void listFiles() {
 
     hFind = FindFirstFile(szDir, &ffd);
 
-    do
-    {
+    do {
         // check if it's a directory
-        if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
-        {
+        if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
             //wcslen(ffd.cFileName
             _tprintf(TEXT("  %*s      <DIR>\n"), 30, ffd.cFileName);
-        }
-        else
+        } else {
         // else it's a file
-        {
             filesize.LowPart = ffd.nFileSizeLow;
             filesize.HighPart = ffd.nFileSizeHigh;
             _tprintf(TEXT("  %*s      %ld bytes\n"), 30, ffd.cFileName, filesize.QuadPart);
